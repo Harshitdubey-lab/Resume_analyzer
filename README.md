@@ -30,7 +30,7 @@
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<your-username>/resume-analyzer.git
+git clone https://github.com/Harshitdubey-lab/Resume_analyzer.git
 cd resume-analyzer
 
 # 2. Create virtual environment

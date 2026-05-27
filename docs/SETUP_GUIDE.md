@@ -15,7 +15,7 @@
 ## Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/resume-analyzer.git
+git clone https://github.com/Harshitdubey-lab/Resume_analyzer.git
 cd resume-analyzer
 ```
 
@@ -163,7 +163,7 @@ This creates `artifacts/Project_Summary_Report.pdf` with project documentation.
 
 ```bash
 # Clone
-git clone https://github.com/<your-username>/resume-analyzer.git
+git clone https://github.com/Harshitdubey-lab/Resume_analyzer.git
 cd resume-analyzer
 
 # Setup
