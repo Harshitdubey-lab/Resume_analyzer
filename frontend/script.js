@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('http://localhost:8000/analyze', {
+            const response = await fetch('/analyze', {
                 method: 'POST',
                 body: formData
             });
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const loadingId = addMessage('...', 'ai');
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch('/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
