@@ -1,0 +1,82 @@
+{
+    "data_scientist": {
+        "core_skills": ["python", "r", "statistics", "machine learning", "deep learning", "nlp"],
+        "tools": ["pandas", "numpy", "scikit-learn", "tensorflow", "pytorch", "tableau", "sql"],
+        "description_keywords": ["predictive modeling", "data mining", "a/b testing", "data pipelines", "data visualization"]
+    },
+    "data_analyst": {
+        "core_skills": ["sql", "excel", "statistics", "data cleaning", "data visualization"],
+        "tools": ["tableau", "power bi", "python", "pandas", "looker"],
+        "description_keywords": ["reporting", "dashboards", "business intelligence", "metrics", "kpi"]
+    },
+    "machine_learning_engineer": {
+        "core_skills": ["python", "c++", "machine learning", "deep learning", "algorithms", "data structures"],
+        "tools": ["tensorflow", "pytorch", "scikit-learn", "docker", "kubernetes", "aws", "gcp"],
+        "description_keywords": ["model deployment", "mlops", "scalability", "pipeline", "optimization"]
+    },
+    "ai_engineer": {
+        "core_skills": ["python", "neural networks", "nlp", "computer vision", "reinforcement learning"],
+        "tools": ["tensorflow", "pytorch", "huggingface", "opencv", "cuda"],
+        "description_keywords": ["generative ai", "llm", "transformers", "artificial intelligence", "research"]
+    },
+    "backend_developer": {
+        "core_skills": ["python", "java", "c#", "go", "node.js", "ruby", "sql", "nosql", "api design"],
+        "tools": ["django", "spring boot", "express", "postgresql", "mongodb", "redis", "docker"],
+        "description_keywords": ["microservices", "scalability", "restful", "database optimization", "server-side"]
+    },
+    "frontend_developer": {
+        "core_skills": ["javascript", "html", "css", "typescript", "responsive design"],
+        "tools": ["react", "vue", "angular", "webpack", "tailwind", "sass"],
+        "description_keywords": ["user interface", "spa", "dom manipulation", "accessibility", "cross-browser"]
+    },
+    "full_stack_developer": {
+        "core_skills": ["javascript", "python", "java", "html", "css", "sql", "api design"],
+        "tools": ["react", "node.js", "django", "postgresql", "docker", "aws"],
+        "description_keywords": ["end-to-end", "full lifecycle", "frontend", "backend", "scalable architecture"]
+    },
+    "devops_engineer": {
+        "core_skills": ["linux", "scripting", "ci/cd", "infrastructure as code", "networking", "security"],
+        "tools": ["bash", "python", "docker", "kubernetes", "jenkins", "terraform", "ansible", "aws"],
+        "description_keywords": ["automation", "deployment", "reliability", "monitoring", "cloud"]
+    },
+    "cloud_engineer": {
+        "core_skills": ["cloud architecture", "networking", "security", "serverless", "linux"],
+        "tools": ["aws", "azure", "gcp", "terraform", "docker", "kubernetes"],
+        "description_keywords": ["migration", "high availability", "scalability", "cost optimization", "iam"]
+    },
+    "cybersecurity_analyst": {
+        "core_skills": ["networking", "ethical hacking", "risk assessment", "cryptography", "incident response"],
+        "tools": ["wireshark", "nmap", "metasploit", "siem", "splunk", "kali linux"],
+        "description_keywords": ["vulnerability", "threat detection", "penetration testing", "compliance", "firewall"]
+    },
+    "software_engineer": {
+        "core_skills": ["python", "java", "c++", "system design", "data structures", "algorithms"],
+        "tools": ["git", "docker", "kubernetes", "jenkins", "aws", "azure"],
+        "description_keywords": ["scalability", "latency", "distributed systems", "microservices", "agile"]
+    },
+    "mobile_app_developer": {
+        "core_skills": ["swift", "kotlin", "java", "dart", "mobile architecture", "ui/ux principles"],
+        "tools": ["xcode", "android studio", "flutter", "react native", "firebase"],
+        "description_keywords": ["ios", "android", "cross-platform", "app store", "performance optimization"]
+    },
+    "ui_ux_designer": {
+        "core_skills": ["user research", "wireframing", "prototyping", "visual design", "interaction design"],
+        "tools": ["figma", "sketch", "adobe xd", "invision", "illustrator"],
+        "description_keywords": ["user-centered", "usability", "mockups", "user journeys", "accessibility"]
+    },
+    "product_manager": {
+        "core_skills": ["product strategy", "agile", "user research", "data analysis", "roadmapping"],
+        "tools": ["jira", "trello", "confluence", "mixpanel", "google analytics"],
+        "description_keywords": ["cross-functional", "stakeholder management", "kpi", "go-to-market", "prioritization"]
+    },
+    "business_analyst": {
+        "core_skills": ["requirements gathering", "data analysis", "process modeling", "sql", "agile"],
+        "tools": ["excel", "tableau", "jira", "visio", "confluence"],
+        "description_keywords": ["stakeholders", "business processes", "user stories", "data-driven", "optimization"]
+    },
+    "qa_engineer": {
+        "core_skills": ["test planning", "automated testing", "manual testing", "bug tracking", "agile"],
+        "tools": ["selenium", "cypress", "junit", "pytest", "jira", "postman"],
+        "description_keywords": ["quality assurance", "test cases", "regression testing", "ci/cd", "edge cases"]
+    }
+}

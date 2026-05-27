@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+pdfplumber
+python-docx
+spacy
+scikit-learn
+pandas
+fpdf2
+jinja2
+langdetect
