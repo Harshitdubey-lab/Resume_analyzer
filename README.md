@@ -11,7 +11,8 @@
 
 
 
-live link :- https://resume-analyzer-e8r9.onrender.com
+live link :- https://resume-analyzer-e8r9.onrender.com,
+
 https://resume-analyzer-7jm0uum2u-harshitdubey-labs-projects.vercel.app/
 
 
