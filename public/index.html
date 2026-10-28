@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer | Precision ATS Scoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">AI<span>Analyzer</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#analyze">Analyze</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>The Gold Standard in <span class="gradient-text">AI Career Intelligence</span></h1>
+            <p>Optimize your resume with production-grade analysis, role-specific insights, and semantic JD matching.</p>
+            
+            <div class="upload-container" id="analyze">
+                <div class="input-group">
+                    <label>Target Job Role</label>
+                    <select id="jobRole" style="margin-bottom: 0.5rem;">
+                        <option value="data_scientist">Data Scientist</option>
+                        <option value="data_analyst">Data Analyst</option>
+                        <option value="machine_learning_engineer">Machine Learning Engineer</option>
+                        <option value="ai_engineer">AI Engineer</option>
+                        <option value="backend_developer">Backend Developer</option>
+                        <option value="frontend_developer">Frontend Developer</option>
+                        <option value="full_stack_developer">Full Stack Developer</option>
+                        <option value="devops_engineer">DevOps Engineer</option>
+                        <option value="cloud_engineer">Cloud Engineer</option>
+                        <option value="cybersecurity_analyst">Cybersecurity Analyst</option>
+                        <option value="software_engineer" selected>Software Engineer</option>
+                        <option value="mobile_app_developer">Mobile App Developer</option>
+                        <option value="ui_ux_designer">UI/UX Designer</option>
+                        <option value="product_manager">Product Manager</option>
+                        <option value="business_analyst">Business Analyst</option>
+                        <option value="qa_engineer">QA Engineer / Tester</option>
+                        <option value="other">Other (Specify)</option>
+                    </select>
+                    <input type="text" id="customRoleInput" class="hidden" placeholder="Enter custom role (e.g., Blockchain Architect)" style="width: 100%; padding: 0.75rem; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); border-radius: 8px; color: white; font-size: 1rem; outline: none;">
+                </div>
+
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <p>Drag & Drop your Resume (PDF/DOCX)</p>
+                        <span>or</span>
+                        <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                        <input type="file" id="fileInput" hidden accept=".pdf,.docx">
+                    </div>
+                </div>
+
+                <div class="jd-container">
+                    <textarea id="jobDescription" placeholder="Paste Job Description here (Optional) for better accuracy..."></textarea>
+                </div>
+
+                <button class="btn-analyze" id="analyzeBtn">Analyze Resume</button>
+            </div>
+        </section>
+
+        <section id="results" class="results-section hidden">
+            <div class="results-grid">
+                <div class="card score-card">
+                    <h3>ATS Compatibility Score</h3>
+                    <div class="score-display">
+                        <div class="progress-ring">
+                            <svg width="200" height="200">
+                                <circle class="bg" cx="100" cy="100" r="80"></circle>
+                                <circle class="progress" cx="100" cy="100" r="80"></circle>
+                            </svg>
+                            <div class="score-text">
+                                <span id="totalScore">0</span>
+                                <small>/100</small>
+                                <div id="langBadge" class="lang-badge">Detecting...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="feedback-grid">
+                    <div class="card feedback-card strengths">
+                        <h4>Strengths</h4>
+                        <ul id="strengthsList"></ul>
+                    </div>
+                    <div class="card feedback-card weaknesses">
+                        <h4>Areas for Improvement</h4>
+                        <ul id="weaknessesList"></ul>
+                    </div>
+                    <div class="card feedback-card suggestions">
+                        <h4>AI Recommendations</h4>
+                        <ul id="suggestionsList"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="card">
+                    <h4>Keyword Density Analysis</h4>
+                    <div id="keywordChartContainer"></div>
+                </div>
+                <div class="card">
+                    <h4>ATS Keyword Gaps</h4>
+                    <div id="missingKeywords" class="keyword-tags"></div>
+                </div>
+                <div class="card">
+                    <h4>Formatting & Structure</h4>
+                    <div id="formattingReport"></div>
+                </div>
+            </div>
+
+            <div class="history-section card">
+                <h4>Analysis History</h4>
+                <div id="historyList" class="history-list"></div>
+            </div>
+        </section>
+
+        <section class="tips-section" id="tips">
+            <h2>Resume Improvement Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📊</div>
+                    <h3>Quantify Results</h3>
+                    <p>Instead of "Managed a team", use "Managed a team of 10 and increased productivity by 25%."</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🔑</div>
+                    <h3>Use Keywords</h3>
+                    <p>Mirror the language used in the job description to pass ATS filters.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📄</div>
+                    <h3>Keep it Simple</h3>
+                    <p>Use clean, standard fonts and avoid complex graphics that can confuse AI scanners.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="loader" class="loader-overlay hidden">
+        <div class="spinner"></div>
+        <p>Analyzing your resume...</p>
+    </div>
+
+    <!-- Chat Widget -->
+    <button id="chatToggleBtn" class="chat-toggle-btn hidden">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+
+    <div id="chatWindow" class="chat-window hidden">
+        <div class="chat-header">
+            <h3>AI Career Coach</h3>
+            <button id="chatCloseBtn">&times;</button>
+        </div>
+        <div id="chatMessages" class="chat-messages">
+            <div class="chat-message ai">
+                Hi! I'm your AI Career Coach. I've analyzed your resume. What would you like to improve?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask about skills, formatting, score...">
+            <button id="chatSendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

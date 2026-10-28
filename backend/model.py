@@ -5,7 +5,11 @@ import spacy
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from .utils import preprocess_text, extract_sections, detect_language
+try:
+    from .utils import preprocess_text, extract_sections, detect_language
+except (ImportError, ValueError):
+    from utils import preprocess_text, extract_sections, detect_language
+
 
 # Load roles from JSON
 ROLES_FILE = os.path.join(os.path.dirname(__file__), 'roles.json')

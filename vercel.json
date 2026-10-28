@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(analyze|chat|upload-resume|docs|openapi.json|health)",
+      "destination": "/api/index.py"
+    }
+  ]
+}

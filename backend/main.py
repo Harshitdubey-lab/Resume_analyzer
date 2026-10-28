@@ -3,9 +3,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import os
+import sys
 import shutil
-from .utils import extract_text_from_pdf, extract_text_from_docx, clean_text
-from .model import AdvancedAnalyzer
+
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
+try:
+    from .utils import extract_text_from_pdf, extract_text_from_docx, clean_text
+    from .model import AdvancedAnalyzer
+except (ImportError, ValueError):
+    from utils import extract_text_from_pdf, extract_text_from_docx, clean_text
+    from model import AdvancedAnalyzer
 
 app = FastAPI(title="Production-Grade Resume AI")
 
@@ -80,9 +90,27 @@ async def chat_with_bot(request: ChatRequest):
     reply = analyzer.generate_chat_response(request.message, request.context)
     return {"reply": reply}
 
-# Mount frontend static files at the end to avoid overriding API routes
-FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="static")
+@app.get("/health")
+def health():
+    return {"status": "ok", "app": "AI Resume Analyzer"}
+
+# Mount frontend static files if directory exists
+possible_frontend_dirs = [
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend"),
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "frontend"),
+    os.path.join(os.getcwd(), "frontend"),
+    os.path.join(os.getcwd(), "public"),
+    "frontend",
+    "public"
+]
+frontend_dir = next((d for d in possible_frontend_dirs if os.path.isdir(d)), None)
+
+if frontend_dir:
+    app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="static")
+else:
+    @app.get("/")
+    def root():
+        return {"status": "ok", "message": "AI Resume Analyzer API is running"}
 
 if __name__ == "__main__":
     import uvicorn
