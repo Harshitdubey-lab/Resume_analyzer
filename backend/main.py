@@ -17,9 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import tempfile
+
 analyzer = AdvancedAnalyzer()
 
-UPLOAD_DIR = "uploads"
+UPLOAD_DIR = os.path.join(tempfile.gettempdir(), "resume_analyzer_uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.post("/upload-resume")
@@ -79,7 +81,8 @@ async def chat_with_bot(request: ChatRequest):
     return {"reply": reply}
 
 # Mount frontend static files at the end to avoid overriding API routes
-app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
+FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
