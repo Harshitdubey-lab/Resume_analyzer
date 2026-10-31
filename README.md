@@ -49,6 +49,7 @@ source venv/bin/activate          # Linux/Mac
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 
+
 # 4. Run the server
 python -m uvicorn backend.main:app --reload
 
